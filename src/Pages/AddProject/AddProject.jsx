@@ -88,7 +88,7 @@ const AddProject = () => {
                             type='text'
                             fullWidth
                             sx={{
-                              border: "1px solid blue",
+                              borderBottom: "2px solid #1769aa",
                               paddingLeft: "10px",
                             }}
                             value={values.project_name}
@@ -121,7 +121,7 @@ const AddProject = () => {
                         {({ field }) => (
                           <Select
                             {...field}
-                            sx={{ boder: "1px solid blue" }}
+                            sx={{ borderBottom: "2px solid #1769aa" }}
                             variant='standard'
                             fullWidth
                             value={values.material}

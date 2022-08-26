@@ -16,6 +16,7 @@ import { deleteStonePart } from "../../Redux/projectsSlice";
 import { useReactToPrint } from "react-to-print";
 import { currencyFormat } from "../../Helpers/currencyFormat";
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
+import background from "../../Helpers/background.jpg";
 
 const DisplayDetails = () => {
   const { state } = useLocation();
@@ -59,7 +60,7 @@ const DisplayDetails = () => {
             <Grid container>
               <Grid item sx={{ marginRight: "50px" }}>
                 <Typography sx={{ fontWeight: "bold" }}>Projekat:</Typography>
-                <Typography sx={{ fontWeight: "bold" }}>
+                <Typography sx={{ fontWeight: "bold", color: "#ffcd38" }}>
                   {projectDetails.project_name}
                 </Typography>
               </Grid>
@@ -67,13 +68,13 @@ const DisplayDetails = () => {
                 <Typography sx={{ fontWeight: "bold" }}>
                   Vrsta kamena:
                 </Typography>
-                <Typography sx={{ fontWeight: "bold" }}>
+                <Typography sx={{ fontWeight: "bold", color: "#ffcd38" }}>
                   {projectDetails.material}
                 </Typography>
               </Grid>
               <Grid item>
                 <Typography sx={{ fontWeight: "bold" }}>Total:</Typography>
-                <Typography sx={{ fontWeight: "bold" }}>
+                <Typography sx={{ fontWeight: "bold", color: "#ffcd38" }}>
                   {projectDetails.total_price > 0
                     ? currencyFormat(projectDetails.total_price)
                     : "0 Eur"}
@@ -86,7 +87,7 @@ const DisplayDetails = () => {
             <TableContainer sx={{ border: "1px solid #A1A0A3" }}>
               <Table>
                 <TableHead>
-                  <TableRow sx={{ backgroundColor: "#D3D3D3" }}>
+                  <TableRow sx={{ backgroundImage: `url(${background})` }}>
                     <TableCell>
                       <Typography>Naziv</Typography>
                     </TableCell>
@@ -108,24 +109,30 @@ const DisplayDetails = () => {
                           key={el.id}
                           sx={{ borderBottom: "2px solid black" }}
                         >
-                          <TableCell sx={{ pt: "0", pb: "5px" }}>
+                          <TableCell
+                            sx={{ pt: "0", pb: "5px", color: "#ffcd38" }}
+                          >
                             <Typography>{el.part_name}</Typography>
                           </TableCell>
                           <TableCell sx={{ pt: "0", pb: "5px" }}>
-                            <Typography>
+                            <Typography sx={{ color: "#ffcd38" }}>
                               {el.length} / {el.width} / {el.height}
                             </Typography>
                           </TableCell>
                           <TableCell sx={{ pt: "0", pb: "5px" }}>
-                            <Typography sx={{ fontWeight: "bold" }}>
+                            <Typography
+                              sx={{ fontWeight: "bold", color: "#ffcd38" }}
+                            >
                               {el.price > 0
                                 ? currencyFormat(el.price)
                                 : "0 Eur"}
                             </Typography>
                           </TableCell>
-                          <TableCell sx={{ pt: "0", pb: "5px" }}>
+                          <TableCell sx={{ pt: "5px", pb: "5px" }}>
                             <Button
-                              sx={{ color: "red" }}
+                              size='small'
+                              variant='contained'
+                              sx={{ color: "white" }}
                               onClick={() => deleteItem(el.id, el.price)}
                             >
                               X

@@ -7,7 +7,7 @@ import background from "../../Helpers/background.jpg";
 const classes = {
   item: {
     padding: "5px",
-    mt: "5px",
+    mt: "10px",
     cursor: "pointer",
     borderRadius: "10px",
     "&:hover": {
@@ -27,33 +27,34 @@ const AllProjects = () => {
   };
 
   return (
-    <Grid
-      container
-      direction='column'
-      sx={{
-        margin: "0 auto",
-        width: "50%",
-        padding: "20px",
-        border: "2px solid gray",
-        borderRadius: "20px",
-      }}
-    >
-      {projects.map((el) => {
-        return (
-          <Grid
-            item
-            key={el.id}
-            sx={classes.item}
-            onClick={() => navigateToProject(el.id, el.material)}
-          >
-            <Typography sx={{ fontWeight: "bold", color: "black" }}>
-              Projekat: {el.project_name} | {el.material} |{" "}
-              {currencyFormat(el.total_price)}
-            </Typography>
-          </Grid>
-        );
-      })}
-    </Grid>
+    projects &&
+    projects.length > 0 && (
+      <Grid
+        container
+        direction='column'
+        sx={{
+          margin: "0 auto",
+          width: "50%",
+          borderRadius: "20px",
+        }}
+      >
+        {projects.map((el) => {
+          return (
+            <Grid
+              item
+              key={el.id}
+              sx={classes.item}
+              onClick={() => navigateToProject(el.id, el.material)}
+            >
+              <Typography sx={{ fontWeight: "bold", color: "black" }}>
+                Projekat: {el.project_name} | {el.material} |{" "}
+                {currencyFormat(el.total_price)}
+              </Typography>
+            </Grid>
+          );
+        })}
+      </Grid>
+    )
   );
 };
 

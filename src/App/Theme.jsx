@@ -23,7 +23,7 @@ export const theme = createTheme({
           padding: 0;
           width: 100%;
           height: 100%;
-          background-image: url(${background2});
+          background-image: url(${gray});
           background-size: cover;
         }
       `,

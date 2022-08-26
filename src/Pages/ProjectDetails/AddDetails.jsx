@@ -10,6 +10,7 @@ import {
   addProjectsDetails,
   updateTotalPrice,
 } from "../../Redux/projectsSlice";
+import background from "../../Helpers/background.jpg";
 
 const AddDetails = () => {
   const { state } = useLocation();
@@ -54,7 +55,8 @@ const AddDetails = () => {
         item
         sx={{
           width: "100%",
-          backgroundColor: "#D3D3D3",
+          backgroundImage: `url(${background})`,
+          boxShadow: "rgba(0, 0, 0, 0.3) 0px 14px 33px",
           borderRadius: "10px",
           padding: "20px",
         }}
