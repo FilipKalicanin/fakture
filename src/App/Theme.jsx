@@ -1,6 +1,4 @@
 import { createTheme } from "@mui/material/styles";
-import background from "../Helpers/background.jpg";
-import background2 from "../Helpers/background2.jpg";
 import gray from "../Helpers/gray.jpg";
 
 export const theme = createTheme({
