@@ -51,7 +51,7 @@ const DisplayDetails = () => {
           onClick={() => handlePrint()}
           endIcon={<FileDownloadIcon />}
         >
-          Nikola
+          Sacuvaj
         </Button>
       </Grid>
       <Grid item ref={componentRef}>
@@ -89,7 +89,7 @@ const DisplayDetails = () => {
                 <TableHead>
                   <TableRow sx={{ backgroundImage: `url(${background})` }}>
                     <TableCell>
-                      <Typography>Naziv</Typography>
+                      <Typography>Kolicina</Typography>
                     </TableCell>
                     <TableCell>
                       <Typography>Dimenzije</Typography>
@@ -112,7 +112,7 @@ const DisplayDetails = () => {
                           <TableCell
                             sx={{ pt: "0", pb: "5px", color: "#ffcd38" }}
                           >
-                            <Typography>{el.part_name}</Typography>
+                            <Typography>{el.amount} kom.</Typography>
                           </TableCell>
                           <TableCell sx={{ pt: "0", pb: "5px" }}>
                             <Typography sx={{ color: "#ffcd38" }}>

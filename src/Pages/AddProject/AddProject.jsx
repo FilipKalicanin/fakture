@@ -155,7 +155,7 @@ const AddProject = () => {
 
                     <Grid item>
                       <Button type='submit' variant='contained'>
-                        Dodaj Projekat Nikola
+                        Dodaj Projekat
                       </Button>
                     </Grid>
                   </Grid>

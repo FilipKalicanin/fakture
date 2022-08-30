@@ -17,17 +17,17 @@ const AddDetails = () => {
   const dispatch = useDispatch();
 
   const DataSchema = Yup.object().shape({
-    length: Yup.number().max(1000).required("Kuda?"),
-    width: Yup.number().max(1000).required("Kuda?"),
-    height: Yup.number().min(3).required("Kuda?"),
-    part_name: Yup.string().max(50).required("Kuda?"),
+    length: Yup.number().max(1000).required("Obavezano polje."),
+    width: Yup.number().max(1000).required("Obavezano polje."),
+    height: Yup.number().min(3).required("Obavezano polje."),
+    amount: Yup.number().min(1).required("Obavezano polje."),
   });
 
   const initialValues = {
     length: "",
     width: "",
     height: "",
-    part_name: "",
+    amount: "",
   };
 
   const handleSubmit = (data) => {
@@ -35,11 +35,12 @@ const AddDetails = () => {
       length: data.length,
       width: data.width,
       height: data.height,
-      part_name: data.part_name,
+      amount: data.amount,
       price: calculatePrice(
         data.height,
         data.length,
         data.width,
+        data.amount,
         state.material
       ),
       id: uuidv4(),
@@ -165,9 +166,9 @@ const AddDetails = () => {
                 </Grid>
 
                 <Grid item>
-                  <Typography>Naziv</Typography>
+                  <Typography>Kolicina</Typography>
 
-                  <Field name='part_name'>
+                  <Field name='amount'>
                     {({ field }) => (
                       <Input
                         {...field}
@@ -175,16 +176,16 @@ const AddDetails = () => {
                           border: "1px solid blue",
                           paddingLeft: "10px",
                         }}
-                        placeholder='Eg. Lajsna'
-                        type='text'
+                        placeholder='Eg. 3'
+                        type='number'
                         fullWidth
-                        value={values.part_name}
-                        name='part_name'
+                        value={values.amount}
+                        name='amount'
                         disableUnderline
                       />
                     )}
                   </Field>
-                  <ErrorMessage name='part_name'>
+                  <ErrorMessage name='amount'>
                     {(message) => (
                       <Typography color='error' variant='body2'>
                         {message}
