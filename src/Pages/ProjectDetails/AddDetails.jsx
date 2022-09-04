@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Button, Grid, Input, Typography } from "@mui/material";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -15,6 +15,7 @@ import background from "../../Helpers/background.jpg";
 const AddDetails = () => {
   const { state } = useLocation();
   const dispatch = useDispatch();
+  const focusRef = useRef();
 
   const DataSchema = Yup.object().shape({
     length: Yup.number().max(1000).required("Obavezano polje."),
@@ -48,6 +49,7 @@ const AddDetails = () => {
 
     dispatch(addProjectsDetails({ parentId: state.id, data: newInput }));
     dispatch(updateTotalPrice({ parentId: state.id, price: newInput.price }));
+    focusRef.current.focus();
   };
 
   return (
@@ -95,6 +97,7 @@ const AddDetails = () => {
                         value={values.length}
                         name='length'
                         disableUnderline
+                        inputRef={focusRef}
                       />
                     )}
                   </Field>
