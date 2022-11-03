@@ -1,5 +1,5 @@
 1. ls
-2. package.json
+2. if you don't see 'package.json' do 3. step. If you do, skip to 5.
 3. cd master-fakture
 4. ls
 5. npm start
